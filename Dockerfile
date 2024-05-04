@@ -1,12 +1,9 @@
-FROM python:3.13.0a4-alpine3.19
-
-RUN apk add --no-cache bash
+FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY ./entrypoint.sh .
-COPY ./source-code .
+COPY ./source-code/app.py .
 
-RUN chmod +x ./entrypoint.sh
+RUN pip install Flask
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+CMD ["python", "app.py"]
