@@ -12,10 +12,10 @@ jobs:
       run: 
         docker login --username al3castro --password ${{ secrets.GH_PAT }} ghcr.io
     - uses: actions/checkout@v3
-    - name: Login
+    - name: Build
       run: 
         docker build . -t ghcr.io/al3castro/ci-cd-demo-app:latest
     - uses: actions/checkout@v3
-    - name: Login
+    - name: Push
       run: 
         docker push ghcr.io/al3castro/ci-cd-demo-app:latest
