@@ -14,14 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Login
+    - name: Login, build and push
       run: 
         docker login --username al3castro --password ${{ secrets.GH_PAT }} ghcr.io 
-    - uses: actions/checkout@v3
-    - name: Build image
-      run: 
         docker build . -t ghcr.io/al3castro/ci-cd-demo-app:latest 
-    - uses: actions/checkout@v3
-    - name: Push image
-      run: 
         docker push ghcr.io/al3castro/ci-cd-demo-app:latest 
