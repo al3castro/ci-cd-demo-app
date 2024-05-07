@@ -11,5 +11,8 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    - name: http2
+      port: 80
+      targetPort: 80
   selector:
     {{- include "helm-demo-app.selectorLabels" . | nindent 4 }}
