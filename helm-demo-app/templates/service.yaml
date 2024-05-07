@@ -7,12 +7,13 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+    - name: http
       protocol: TCP
-      name: http
-    - name: http2
       port: 80
       targetPort: 80
+    - name: http2
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
   selector:
     {{- include "helm-demo-app.selectorLabels" . | nindent 4 }}
