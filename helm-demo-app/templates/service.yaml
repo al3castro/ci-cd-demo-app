@@ -9,8 +9,10 @@ spec:
   ports:
     - name: http
       port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.port }}
+      protocol: TCP
+      targetPort: http
     - name: http2
+      protocol: TCP
       port: 80
       targetPort: 80
   selector:
